@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- TODO
+    엄마한테 문자가기
+    소비자의들의 니즈:
+    + 브랜드
+    + 주거 환경 (학교 근접, 오션 뷰)
+    + 미래 가치 (주변 개발 계획)
+-->
+<head>
+    <Title>힐스테이트 더웨이브시티</Title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+    <div id="menu">
+        <img src="{{ url_for('static', filename='images/4.jpg') }}" alt="Logo" id="logo">
+        <nav id="menuItems">
+            <a href="#formContainer">방문예약</a>
+            <a href="#phoneContainer">Features</a>
+        </nav>
+    </div>
+
+    <div id="imageContainer" style="height: 60vh;">
+        <img id="rotatingImage" src="{{ url_for('static', filename='images/1.webp') }}" style="width: 100%; height: 100%;">
+        <div id="centerText">힐스테이트 더 웨이브시티</div>
+    </div>
+
+
+    <div id="buttonsContainer">
+        <button class="roundedButton gradientButton1" >방문예약</button>
+        <button class="roundedButton gradientButton2" href="tel:031-506-1500">즉시상담</button>
+    </div>
+    
+    <div id="phoneContainer">
+        <a href="tel:031-506-1500">031-506-1500</a>
+        <p>클릭하시면 전화 연결 됩니다.</p>
+    </div>
+
+    <div id="livingEnvironmentContainer">
+        <h2>입지 환경</h2>
+        <div class="line"></div>
+        <img src="{{ url_for('static', filename='images/11.webp') }}" alt="Living Environment">
+    </div>
+
+    <div id="premiumContainer">
+        <h2>Premium</h2>
+        <div class="line"></div>
+        <img src="{{ url_for('static', filename='images/12.jpg') }}" alt="Premium Image">
+    </div>
+
+    <div id="unitPlanContainer">
+        <h2>Unit Plan</h2>
+        <div class="line"></div>
+        <div class="imagesContainer">
+            <img src="{{ url_for('static', filename='images/6.png') }}" alt="Unit Plan Image 1">
+            <img src="{{ url_for('static', filename='images/7.webp') }}" alt="Unit Plan Image 2">
+            <img src="{{ url_for('static', filename='images/8.webp') }}" alt="Unit Plan Image 3">
+        </div>
+    </div>
+
+    <div id="layoutPlanContainer">
+        <h2>단지 배치도</h2>
+        <div class="line"></div>
+        <img src="{{ url_for('static', filename='images/9.webp') }}" alt="Layout Plan">
+        <img src="{{ url_for('static', filename='images/10.webp') }}" alt="Additional Plan">
+    </div>
+    
+    <div id="phoneContainer">
+        <a href="tel:031-506-1500" style="color: #800020">031-506-1500</a>
+        <p style="color: #400020">클릭하시면 전화 연결 됩니다.</p>
+    </div> <br><br><br><br>
+
+    <div id="reservationTitle">
+        <h2>방문 예약</h2>
+    </div>
+    <div id="formContainer">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">이름: </label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="phone">핸드폰 번호: </label>
+                <input type="text" id="phone" name="phone" placeholder="010-XXXX-XXXX">
+            </div>
+            <div class="form-group">
+                <label for="date">방문 예정일: </label>
+                <input type="text" id="date" name="date" placeholder="X월 X일 XX시 (XX분)">
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="신청하기">
+            </div>
+        </form>
+    </div>
+
+    <br><br><br><br>
+
+    <script src="{{ url_for('static', filename='js/image_rot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/image_text.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/button_click.js')}}"></script>
+    {% if message %}
+    <script>
+        alert("{{ message|safe }}");
+    </script>
+    {% endif %}
+</body>
