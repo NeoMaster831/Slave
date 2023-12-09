@@ -38,16 +38,16 @@ def close_connection(exception):
 # twilio
 from twilio.rest import Client
 
-account_sid = 'AC206ef4d70c94e4dc749095654bb2689b'
-auth_token = 'c95346acfa82e164b1e9168a72442d4d'
+account_sid = 'AC1c6fb3a1a6a9ac2aef2337d73b266c3d'
+auth_token = 'c1b2a1e243dd178ef3354162a2d63da1'
 client = Client(account_sid, auth_token)
 
 def send_sms(phone_number, message):
     client.messages.create(to=phone_number, 
-                           from_='+18304338633', # TODO: 수정 
+                           from_='+18304338633', 
                            body=message)
 
-TO = '+821074735898'
+TO = '+821092735898'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -62,7 +62,7 @@ def index():
                    [name, phone, date])
         db.commit()
 
-        send_sms(TO, '새로운 방문 예약이 있습니다:\n이름: {}\n전화번호: {}\n, 날짜:{}'.format(name, phone, date))
+        send_sms(TO, '새로운 방문 예약이 있습니다:\n이름: {}\n전화번호: {}\n날짜: {}'.format(name, phone, date))
 
         return render_template('index.html')
     elif request.method == 'GET':
