@@ -2,6 +2,7 @@ import sqlite3
 from flask import Flask, render_template, request, g
 
 app = Flask(__name__)
+"""
 DATABASE = './inf.db'
 
 # preinit?
@@ -34,6 +35,7 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+"""
 
 # twilio
 from twilio.rest import Client
@@ -56,10 +58,11 @@ def index():
         phone = request.form.get('phone')
         date = request.form.get('date')
 
-        db = get_db()
-        db.execute('INSERT INTO reservations (name, phone, date) VALUES (?, ?, ?)',
-                   [name, phone, date])
-        db.commit()
+        
+        #db = get_db()
+        #db.execute('INSERT INTO reservations (name, phone, date) VALUES (?, ?, ?)',
+        #           [name, phone, date])
+        #db.commit()
 
         send_sms(TO, '새로운 방문 예약이 있습니다:\n이름: {}\n전화번호: {}\n날짜: {}'.format(name, phone, date))
 
