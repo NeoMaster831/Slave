@@ -67,5 +67,3 @@ def index():
         return render_template('index.html')
     elif request.method == 'GET':
         return render_template('index.html')
-
-app.run(host = '127.0.0.1', port=8080)
